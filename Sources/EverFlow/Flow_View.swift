@@ -14,7 +14,7 @@ public struct Flow_View: View, Identifiable
     public var view: AnyView
     public var route: String
     
-    init(view: AnyView, route: String)
+    public init(view: AnyView, route: String)
     {
         self.view = view
         self.route = route
