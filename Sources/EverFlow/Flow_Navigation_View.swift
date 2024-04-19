@@ -20,6 +20,11 @@ public struct Flow_Navigation_View<Navigation_Publisher>: View where Navigation_
     @State private var content_width: CGFloat = .zero
     @State private var content_height: CGFloat = .zero
     
+    public init(navigation_publisher: Navigation_Publisher)
+    {
+        self.navigation_publisher = navigation_publisher
+    }
+    
     public var body: some View
     {
         ZStack
