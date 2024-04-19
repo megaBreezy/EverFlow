@@ -13,4 +13,5 @@ public enum Flow_Direction
     case forward
     case up
     case down
+    case instant
 }

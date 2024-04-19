@@ -107,6 +107,11 @@ public struct Flow_Navigation_View<Navigation_Publisher>: View where Navigation_
                         self.current_view_offset_x = 0
                         self.prior_view_offset_x = -content_width * (0.35)
                     }
+                default:
+                    self.prior_view_offset_x = 0
+                    self.prior_view_offset_y = 0
+                    self.current_view_offset_x = 0
+                    self.current_view_offset_y = 0
             }
         }
     }
