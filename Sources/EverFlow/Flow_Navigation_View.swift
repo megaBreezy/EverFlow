@@ -31,6 +31,10 @@ public struct Flow_Navigation_View<Navigation_Publisher>: View where Navigation_
         {
             GeometryReader { geometry in
                 Color.clear
+                    .onAppear(perform: {
+                        content_width = geometry.size.width
+                        content_height = geometry.size.height
+                    })
                     .onChange(of: geometry.size, perform: { new_size in
                         content_width = new_size.width
                         content_height = new_size.height
