@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum Flow_Direction
+public enum Flow_Direction: String, CaseIterable
 {
     case backward
     case forward

@@ -8,17 +8,20 @@
 import SwiftUI
 
 @available(iOS 15, macOS 10.15, *)
-public struct Flow_View: View, Identifiable
+public struct Flow_View: View, Identifiable, Equatable
 {
     public var id = UUID().uuidString
     public var view: AnyView
-    public var route: String
     
-    public init(view: AnyView, route: String)
+    public init(view: AnyView)
     {
         self.view = view
-        self.route = route
     }
     
     public var body: some View { view }
+    
+    public static func == (lhs: Flow_View, rhs: Flow_View) -> Bool
+    {
+        lhs.id == rhs.id
+    }
 }

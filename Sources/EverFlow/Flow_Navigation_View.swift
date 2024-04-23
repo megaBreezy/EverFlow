@@ -43,13 +43,13 @@ public struct Flow_Navigation_View<Navigation_Publisher>: View where Navigation_
             
             ForEach(navigation_publisher.views)
             { view in
-                let index = navigation_publisher.views.firstIndex(where: { $0.route == view.route }) ?? -1
-                let z_index: Double = view.route == navigation_publisher.current_route ? 1 : 0
+                let index = navigation_publisher.views.firstIndex(where: { $0.id == view.id }) ?? -1
+                let z_index: Double = view.id == navigation_publisher.incoming_view.id ? 1 : 0
 
                 view
                     .zIndex(
                         [Flow_Direction.backward, Flow_Direction.down]
-                            .contains(navigation_publisher.current_direction) && view.route == navigation_publisher.prior_route
+                            .contains(navigation_publisher.current_direction) && view.id == navigation_publisher.outgoing_view?.id
                                 ? 2
                                 : z_index
                     )
@@ -63,7 +63,7 @@ public struct Flow_Navigation_View<Navigation_Publisher>: View where Navigation_
                     )
             }
         }
-        .onChange(of: navigation_publisher.current_route)
+        .onChange(of: navigation_publisher.incoming_view)
         { route in
             guard let flow_direction = navigation_publisher.current_direction else { return }
             
