@@ -34,12 +34,12 @@ public class Flow_Navigation_View_Handler: ObservableObject, Flow_Navigation_Pub
     
     public func navigate(
         incoming_view: Flow_View,
-        outgoing_view: Flow_View?,
+        outgoing_view: Flow_View? = nil,
         direction: Flow_Direction,
         on_complete: @escaping () -> Void
     )
     {
-        self.outgoing_view = outgoing_view
+        self.outgoing_view = outgoing_view ?? self.incoming_view
         self.incoming_view = incoming_view
         self.current_direction = direction
         self.views_should_publish = true
